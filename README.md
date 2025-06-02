@@ -17,7 +17,7 @@
 
 ### 文件
 1. [smart-tooltip.css文件](/smart-tooltip.css)
-2. [smart-tooltip.js文件](smart-tooltip.js)
+2. [smart-tooltip.js文件(可选)](smart-tooltip.js)
 
 ### 使用注释
 
