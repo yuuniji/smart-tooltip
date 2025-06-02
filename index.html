@@ -258,6 +258,11 @@
             font-size: 14px;
             line-height: 1.5;
         }
+        footer a:hover {
+            text-decoration: underline;
+            color: var(--accent-hover);
+        }
+
     </style>
 </head>
 <body>
@@ -569,5 +574,10 @@ document.addEventListener('DOMContentLoaded', setupSmartTooltips);</code></pre>
         // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', setupSmartTooltips);
     </script>
+    <footer style="margin-top: 60px; padding-top: 20px; border-top: 1px solid #e5e7eb; font-size: 14px; text-align: center; color: #6b7280;">
+        <p>© 2025 <a href="https://github.com/yuuniji/smart-tooltip" target="_blank" style="color: var(--accent); text-decoration: none;">smart-tooltip</a> by <a href="https://github.com/yuuniji" target="_blank" style="color: var(--accent); text-decoration: none;">Yuuniji.</a></p>
+        <p>本项目开源于 GitHub，欢迎 Star 和 Fork。</p>
+    </footer>
+
 </body>
 </html>
