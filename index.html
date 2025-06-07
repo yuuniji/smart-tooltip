@@ -98,9 +98,11 @@
             left: 12px;
         }
 
-        /* 悬停时显示 */
+        /* 悬停或激活时显示 */
         .note:hover::after,
-        .note:hover::before {
+        .note:hover::before,
+        .note.active::after,
+        .note.active::before {
             display: block;
             opacity: 1;
             transform: translateY(0);
@@ -363,6 +365,32 @@
 
         // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', setupSmartTooltips);
+
+        // 移动端触摸支持
+        function setupTouchTooltips() {
+            const notes = document.querySelectorAll('.note:not(.demo-note)');
+            notes.forEach(note => {
+                // 触摸或点击时切换 active 状态
+                note.addEventListener('touchstart', function(e) {
+                    e.stopPropagation();
+                    notes.forEach(n => n.classList.remove('active'));
+                    this.classList.add('active');
+                });
+                note.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    notes.forEach(n => n.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            // 点击其他区域关闭所有注释
+            document.body.addEventListener('touchstart', function() {
+                notes.forEach(n => n.classList.remove('active'));
+            });
+            document.body.addEventListener('click', function() {
+                notes.forEach(n => n.classList.remove('active'));
+            });
+        }
+        document.addEventListener('DOMContentLoaded', setupTouchTooltips);
     </script>
     <footer style="margin-top: 60px; padding-top: 20px; border-top: 1px solid #e5e7eb; font-size: 14px; text-align: center; color: #6b7280;">
         <p>© 2025 <a href="https://github.com/yuuniji/smart-tooltip" target="_blank" style="color: var(--accent); text-decoration: none;">smart-tooltip</a> by <a href="https://github.com/yuuniji" target="_blank" style="color: var(--accent); text-decoration: none;">Yuuniji.</a></p>

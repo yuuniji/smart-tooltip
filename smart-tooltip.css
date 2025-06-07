@@ -60,7 +60,9 @@
 
 /* 悬停时显示 */
 .note:hover::after,
-.note:hover::before {
+.note:hover::before,
+.note.active::after,
+.note.active::before {
   display: block;
   opacity: 1;
   transform: translateY(0);
